@@ -1,0 +1,74 @@
+
+ 
+
+div { text-align: center; padding-left: 60px;}
+ul { display: inline-block; text-align: left; list-style-type: circle;
+}
+
+.myList{
+
+    line-height:150%;
+    padding-top: 2px;
+    text-align: center;
+
+}
+
+.myDiv {
+    font-family: sans-serif;
+    padding-right: 40px;
+    color:rgb(213, 228, 247);
+    top: 100px;
+}
+
+
+/* Split screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /*  left side */
+  .left {
+    left: 0;
+    background-color:rgb(192, 217, 247);
+    text-align: center;
+    padding-top:30px; 
+    font-family: system-ui;
+    font-stretch: condensed;
+    font-size: 18px;
+  }
+  
+  /*  right side */
+  .right {
+    right: 0;
+    background-color: rgb(34, 87, 151);
+    text-align: center;
+    padding-top:60px; 
+    font-family: system-ui;
+    font-stretch: condensed;
+    font-size: 18px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  
+  /* content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-right: 50px;
+  }
+  
+  /*  image inside the centered container*/
+  .centered img {
+    width: 400px;
+    padding-right: 100px;
+
+  }
