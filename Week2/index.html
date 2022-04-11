@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yahaira's Travels!</title>
+	<meta charset="utf-8" />
+
+	<!-- style sheets -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+	<div class="header">
+		<img src="images/background1.png" width="150px">
+		Oh the Places She Went !
+		
+	</div>
+	<div class="sidebar">
+		 Hi! The following are locations I was able to visit for fun or for school-related events :-) </b>
+		<h2>Travel Spots&#128204; :</h2>
+		
+		<ul style="color:white; font-size:16px; position: up;">
+                    
+			<li> <b> Portland, Oregon </b> &#x1F332; </li> <br>
+			<li> <b> Washington D.C. </b> &#x1F3DB; </li> <br>
+			<li> <b> Ensenada, Baja California </b> &#9728;&#65039;</li> <br>
+			<li> <b> Sacramento, California </b> 	
+				&#128188; </li> <br>
+			<li> <b> Santa Barbara, California </b> &#x1F30A; </li> <br>
+			<li> <b> Holtville, California </b>&#x1F955; </li> <br>
+
+
+
+
+		</ul>
+		
+	</div>
+	<div class="content">
+		<div id="map"></div>
+	</div>
+
+	<script> /* between the script tags is where the javascript goes */
+		
+		let cities = [{'lat':'45.523064', 'lon' :'-122.676483', 'description': "<b> Portland, Oregon</b>&#x1F332;<br> Where I was able to watch UCLA Men's Basketball @ March Madness with the UCLA Marching Band"},{'lat':'38.89511', 'lon':'-77.03637','description':'<b>Washington D.C.</b>&#x1F3DB<br> Where I was able to lobby with my U.S. House Represenative in support of Renewable Energy + visit many museums' },{'lat':'31.865858', 'lon':'-116.607681','description':'<b> Ensenada, Baja California </b>&#9728;&#65039<br> Summer Family Vacation <3 + lots of water slides, wave pools, and ziplining'},{'lat':'38.575764', 'lon':'-121.478851','description':'<b> Sacramento, California</b> &#128188;<br> Visited during summer vacation and got to tour state capitol + visited family nearby'},{'lat':'34.420830', 'lon':'-119.698189','description':"<b> Santa Barbara, California</b> &#x1F30A; <br> My best friend's home away from home! where I was able to visit Isla Vista & tour UCSD + where the beach is only a 5 minute walk away"},{'lat':'32.811161', 'lon':'-115.380264','description': "<b> Holtville, California</b> &#x1F955; <br> Home <3 The small town I call my homebase + the formerly known carrot capital of the world"}
+
+]
+		var map = L.map('map').setView([34.0697,-118.4432], 4);
+
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		/* for loop through markers*/
+		cities.forEach(function(item){
+			var marker = L.marker([item.lat,item.lon]).addTo(map)
+				.bindPopup(item.description)
+				.openPopup();
+		})
+	
+
+	</script>
+
+
+</body>
+</html>

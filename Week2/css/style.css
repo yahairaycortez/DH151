@@ -1,0 +1,41 @@
+body,html {
+	margin:0;
+	height:100%;
+	width:100%;
+}
+
+#map {
+	height: 100%;
+}
+
+body {
+	display: grid;
+	grid-template-rows: 80px 1fr;
+	grid-template-columns: 250px 1fr;
+	grid-template-areas: 
+	"header header"
+	"sidebar content";
+}
+
+.header {
+	grid-area: header;
+	padding:10px;
+	font-family: 'Brush Script MT';
+	background-color: #5abed5;
+	color: white;
+	font-size: 3em;
+	background-image: url("dr.seuss.png");
+	text-align: left;
+}
+
+.sidebar {
+	grid-area: sidebar;
+	font-family: sans-serif;
+	padding:20px;
+	background-color: #fec051;
+	color: white;
+}
+
+.content {
+	grid-area: content;
+}
