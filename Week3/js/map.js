@@ -24,7 +24,7 @@ let School = [
 let Home = [
     {
 
-        'id': 5,
+        'id': 2,
         'title':' <b>Holtville, CA </b>&#x1F955;',
         'lat': '32.811161',
         'lon': '-115.380264',
@@ -35,7 +35,7 @@ let Home = [
     ,
     {
 
-        'id': 6,
+        'id': 3,
         'title':' <b>Westwood, LA </b>&#128059;',
         'lat': '34.056111',
         'lon': '-118.42972',
@@ -48,7 +48,7 @@ let Home = [
 
 let Fun=[
     {
-        'id': 2,
+        'id': 4,
         'title':'<b> Ensenada, BC</b> &#9728;&#65039;',
         'lat': '31.865858',
         'lon': '-116.607681',
@@ -56,7 +56,7 @@ let Fun=[
         'description':"Summer Family Vacation <3 + lots of water slides, wave pools, and ziplining",
     },
     {
-        'id': 3,
+        'id': 5,
         'title':'<b> Sacramento, CA </b> &#128188;',
         'lat': '38.575764',
         'lon': '-121.478851',
@@ -64,7 +64,7 @@ let Fun=[
         'description':"Visited during summer vacation and got to tour state capitol + visited family nearby",
     },
     {
-        'id': 4,
+        'id': 6,
         'title':'<b> Santa Barbara, CA </b> &#x1F30A;',
         'lat': '34.420830',
         'lon': '-119.698189',
@@ -114,7 +114,7 @@ School.forEach(function(item){
 	// create marker
 	let marker = L.marker([item.lat,item.lon], {
     title: item.title,
-    icon: SchoolIcon
+    //icon: SchoolIcon
     })
     .bindPopup(`<h3><b>${item.title}</b></h3>${item.image}<br>${item.description}`)
 
@@ -130,7 +130,7 @@ Fun.forEach(function(item){
 	// create marker
 	let marker = L.marker([item.lat,item.lon], {
     title: item.title,
-    icon: FunIcon
+    //icon: FunIcon
     })
     .bindPopup(`<h3><b>${item.title}</b></h3>${item.image}<br>${item.description}`)
 
@@ -147,7 +147,7 @@ Home.forEach(function(item){
 	// create marker
 	let marker = L.marker([item.lat,item.lon], {
     title: item.title,
-    icon: HomeIcon
+   // icon: HomeIcon
     })
     .bindPopup(`<h3><b>${item.title}</b></h3>${item.image}<br>${item.description}`)
 
@@ -156,7 +156,7 @@ Home.forEach(function(item){
     HomeMarkers.addLayer(marker)
 
 	// add data to sidebar with onclick event
-	$('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndex(${item.id})">${item.title}</div>`)
+	$('.sidebar').append(`<div class="sidebar-item" onclick="flyToIndexHome(${Home},${item.id})">${item.title}</div>`)
 })
 
 
@@ -173,7 +173,6 @@ let layers = {
     "School" : SchoolMarkers,
     "Fun":FunMarkers,
     "Home": HomeMarkers
-
 }
 
 // add layer control box
@@ -183,7 +182,8 @@ L.control.layers(null,layers).addTo(map)
 map.fitBounds(myMarkers.getBounds());
 
 // function to fly to a location by a given id number
-function flyToIndex(index){
+
+function flyToIndex(data,index){
 	map.flyTo([data[index].lat,data[index].lon],12)
 }
 
