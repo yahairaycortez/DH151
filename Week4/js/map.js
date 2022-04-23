@@ -7,9 +7,12 @@ let path = "data/dunitz.csv";
 // global variables
 let markers = L.featureGroup();
 
+
+
 // initialize
 $( document ).ready(function() {
-    createMap(lat,lon,zl);
+	createMap(lat,lon,zl);
+	readCSV(path);
 });
 
 // create the map
@@ -20,12 +23,6 @@ function createMap(lat,lon,zl){
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 }
-
-// initialize
-$( document ).ready(function() {
-	createMap(lat,lon,zl);
-	readCSV(path);
-});
 
 // function to read csv data
 function readCSV(path){
@@ -43,28 +40,41 @@ function readCSV(path){
 }
 
 function mapCSV(data){
-	
+
 	// circle options
-	let circleOptions = {
-		radius: 5,
-		weight: 1,
-		color: 'white',
-		fillColor: 'dodgerblue',
-		fillOpacity: 1
+		let circleOptions = {
+			radius: 5,
+			weight: 1,
+			color: 'white',
+			fillColor: 'dodgerblue',
+			fillOpacity: 1
+		}
+	
+		// loop through each entry
+		data.data.forEach(function(item,index){
+			// create a marker
+			let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
+			.on('mouseover',function(){
+				this.bindPopup(`${item.title}<br><img src="${item.thumbnail_url}">`).openPopup()
+			})
+	
+			// add marker to featuregroup
+			markers.addLayer(marker)
+	
+			// add entry to sidebar
+			$('.sidebar').append(`<img src="${item.thumbnail_url}" onmouseover="panToImage(${index})">`)
+		})
+	
+		// add featuregroup to map
+		markers.addTo(map)
+	
+		// fit map to markers
+		map.fitBounds(markers.getBounds())
 	}
 
-	// loop through each entry
-	data.data.forEach(function(item,index){
-		// create marker
-		let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
-
-		// add marker to featuregroup		
-		markers.addLayer(marker)
-	})
-
-	// add featuregroup to map
-	markers.addTo(map)
-
-	// fit markers to map
-	map.fitBounds(markers.getBounds())
-}
+	function panToImage(index){
+		// zoom to level 17 first
+		map.setZoom(17);
+		// pan to the marker
+		map.panTo(markers.getLayers()[index]._latlng);
+	}
