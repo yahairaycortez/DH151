@@ -1,8 +1,8 @@
 // Global variables
 let map;
-let lat = 15;
-let lon = 30;
-let zl = 2;
+let lat = 0;
+let lon = 0;
+let zl = 3;
 
 // path to csv data
 let path = "data/BTSTours.csv";
@@ -30,7 +30,7 @@ function createMap(lat,lon,zl){
 
 
 // function to read csv data
-function readCSV(){
+function readCSV(path){
 	Papa.parse(path, {
 		header: true,
 		download: true,
