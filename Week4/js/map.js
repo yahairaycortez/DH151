@@ -44,13 +44,15 @@ function readCSV(path){
 	});
 }
 
-
 function mapCSV(data){
+
+	$(".sidebar").append(`<div class ="sidebar-item" onclick= "map.flyTo([53.69422599547996, -4.658092291493966], 6)"> 
+	BRITAIN </div>`)
 	
 	// loop through each entry
 	data.data.forEach(function(item,index){
 		// create marker
-		let marker = L.markers([item.latitude,item.longitude])
+		let marker = L.marker([item.latitude,item.longitude])
 
 		// add marker to featuregroup
 		markers.addLayer(marker)
