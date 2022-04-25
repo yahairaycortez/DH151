@@ -11,7 +11,6 @@ body,html {
 body {
 	display: grid;
 	grid-template-rows: 80px 1fr 50px;
-	grid-template-columns: 50% 50%;
 	grid-template-areas: 
 	"header header"
 	"sidebar content"
