@@ -30,7 +30,7 @@ function createMap(lat,lon,zl){
 
 
 // function to read csv data
-function readCSV(path){
+function readCSV(){
 	Papa.parse(path, {
 		header: true,
 		download: true,
