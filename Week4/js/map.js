@@ -6,8 +6,6 @@ let zl = 3;
 
 // path to csv data
 let path = "data/BTSTours.csv";
-
-// global variables
 let markers = L.featureGroup();
 
 
@@ -16,6 +14,7 @@ $( document ).ready(function() {
     createMap(lat,lon,zl);
 	readCSV(path);
 });
+
 
 
 // create the map
@@ -46,14 +45,24 @@ function readCSV(path){
 
 function mapCSV(data){
 
-	$(".sidebar").append(`<div class ="sidebar-item" onclick= "map.flyTo([53.69422599547996, -4.658092291493966], 6)"> 
-	BRITAIN </div>`)
+	// circle options
+	let circleOptions = {
+		radius: 6,
+		weight: 0.5,
+		color: 'white',
+		fillColor: 'red',
+		fillOpacity: 0.4
+	}
+
 	
 	// loop through each entry
 	data.data.forEach(function(item,index){
 		// create marker
-		let marker = L.marker([item.latitude,item.longitude])
-
+		let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
+		.on('mouseover',function(){
+			this.bindPopup(`${item.ZipCode}<br>${item.AverageCost}</br>`).openPopup()
+		})
+		$('.sidebar').append(`<div class="sidebar-item" onmouseover="panTo(${index})"> ${item.ZipCode}</div>`)
 		// add marker to featuregroup
 		markers.addLayer(marker)
 	})
@@ -63,4 +72,9 @@ function mapCSV(data){
 
 	// fit markers to map
 	map.fitBounds(markers.getBounds())
+}
+
+function panTo(index){
+	map.setZoom(14);
+	map.panTo(markers.getLayers()[index]._latlng);
 }
