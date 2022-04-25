@@ -8,7 +8,7 @@ let zl = 3;
 let path = "data/BTSTours.csv";
 
 // global variables
-let markers = L.featureGroup();
+let marker = L.featureGroup();
 
 
 //initalize
@@ -30,7 +30,7 @@ function createMap(lat,lon,zl){
 
 
 // function to read csv data
-function readCSV(){
+function readCSV(path){
 	Papa.parse(path, {
 		header: true,
 		download: true,
@@ -43,7 +43,6 @@ function readCSV(){
 		}
 	});
 }
-
 
 
 function mapCSV(data){
