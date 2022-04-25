@@ -35,3 +35,24 @@ function createMap(lat,lon,zl){
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 }
+
+// global variables
+let markers = L.featureGroup();
+
+function mapCSV(data){
+	
+	// loop through each entry
+	data.data.forEach(function(item,index){
+		// create marker
+		let marker = L.marker([item.latitude,item.longitude])
+
+		// add marker to featuregroup
+		markers.addLayer(marker)
+	})
+
+	// add featuregroup to map
+	markers.addTo(map)
+
+	// fit markers to map
+	map.fitBounds(markers.getBounds())
+}
