@@ -1,8 +1,8 @@
 // Global variables
 let map;
-let lat = 0;
-let lon = 0;
-let zl = 3;
+let lat = 15;
+let lon = 30;
+let zl = 2;
 
 // path to csv data
 let path = "data/BTSTours.csv";
