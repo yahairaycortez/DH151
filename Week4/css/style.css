@@ -22,12 +22,12 @@ body {
 	grid-area: header;
 	padding:10px;
 	background-color: #333;
-	color: white;
+	color: rgb(172, 32, 32);
 	font-size: 2em;
 }
 
 .sidebar {
-	color: white;
+	color: rgb(142, 66, 161);
 	grid-area: sidebar;
 	padding:10px;
 	background-color: #555;
