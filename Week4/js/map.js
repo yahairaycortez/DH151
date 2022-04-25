@@ -8,7 +8,7 @@ let zl = 3;
 let path = "data/BTSTours.csv";
 
 // global variables
-let marker = L.featureGroup();
+let markers = L.featureGroup();
 
 
 //initalize
@@ -50,7 +50,7 @@ function mapCSV(data){
 	// loop through each entry
 	data.data.forEach(function(item,index){
 		// create marker
-		let marker = L.marker([item.latitude,item.longitude])
+		let marker = L.markers([item.latitude,item.longitude])
 
 		// add marker to featuregroup
 		markers.addLayer(marker)
