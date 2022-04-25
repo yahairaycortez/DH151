@@ -4,6 +4,24 @@ let lat = 0;
 let lon = 0;
 let zl = 3;
 
+// path to csv data
+let path = "data/BTSTours.csv";
+
+// function to read csv data
+function readCSV(path){
+	Papa.parse(path, {
+		header: true,
+		download: true,
+		complete: function(data) {
+			console.log(data);
+			
+			// map the data
+			mapCSV(data);
+
+		}
+	});
+}
+
 // initialize
 $( document ).ready(function() {
     createMap(lat,lon,zl);
