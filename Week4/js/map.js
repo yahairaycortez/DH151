@@ -8,7 +8,7 @@ let zl = 3;
 let path = "data/BTSTours.csv";
 
 // function to read csv data
-function readCSV(path){
+function readCSV(){
 	Papa.parse(path, {
 		header: true,
 		download: true,
@@ -22,9 +22,10 @@ function readCSV(path){
 	});
 }
 
-// initialize
+//initalize
 $( document ).ready(function() {
     createMap(lat,lon,zl);
+	readCSV()
 });
 
 // create the map
