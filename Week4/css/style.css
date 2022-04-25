@@ -38,6 +38,16 @@ body {
 	text-align: center;
 }
 
+.sidebar-item {
+	color: #8742e2;
+	grid-area: sidebar;
+	padding:10px;
+	background-color: #D2C7FF;
+	overflow: auto;
+	font-family: SANS-SERIF ,Arial Rounded MT Bold;
+	text-align: center;
+}
+
 
 
 .content {
