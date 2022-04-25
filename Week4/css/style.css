@@ -47,6 +47,7 @@ body {
 .footer {
 	grid-area: footer;
 	padding:10px;
-	background-color: rgb(175, 175, 175);
+	background-color:  #A16AE8;
+	color: white;
 }
 
