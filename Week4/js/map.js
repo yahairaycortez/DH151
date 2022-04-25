@@ -7,6 +7,28 @@ let zl = 2;
 // path to csv data
 let path = "data/BTSTours.csv";
 
+// global variables
+let markers = L.featureGroup();
+
+
+//initalize
+$( document ).ready(function() {
+    createMap(lat,lon,zl);
+	readCSV(path);
+});
+
+
+// create the map
+function createMap(lat,lon,zl){
+	map = L.map('map').setView([lat,lon], zl);
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+}
+
+
+
 // function to read csv data
 function readCSV(){
 	Papa.parse(path, {
@@ -22,23 +44,7 @@ function readCSV(){
 	});
 }
 
-//initalize
-$( document ).ready(function() {
-    createMap(lat,lon,zl);
-	readCSV()
-});
 
-// create the map
-function createMap(lat,lon,zl){
-	map = L.map('map').setView([lat,lon], zl);
-
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
-}
-
-// global variables
-let markers = L.featureGroup();
 
 function mapCSV(data){
 	
