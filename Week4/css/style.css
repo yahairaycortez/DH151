@@ -21,13 +21,13 @@ body {
 .header {
 	grid-area: header;
 	padding:10px;
-	background-color: rgb(255, 111, 111);
-	color: rgb(172, 32, 32);
+	background-color: #333;
+	color: white;
 	font-size: 2em;
 }
 
 .sidebar {
-	color: rgb(142, 66, 161);
+	color: white;
 	grid-area: sidebar;
 	padding:10px;
 	background-color: #555;
@@ -35,32 +35,12 @@ body {
 }
 
 .content {
-	grid-area: content
+	grid-area: content;
 }
 
 .footer {
 	grid-area: footer;
 	padding:10px;
 	background-color: rgb(175, 175, 175);
-}
-
-.sidebar-item{
-	padding-top: 5px;
-    padding: 30px; /* adds inner padding */
-    background: transparent; /* background color */
-    border: 1px solid rgb(49, 95, 148); /* border width, style, and color */
-    margin: 12px; /* outer padding */ 
-    border-radius: 30px;  
-    font-family: Arial;  color: rgb(34, 87, 151);  
-    font-size: 18px;  padding: 25px;  
-    text-decoration: none;
-    height:7px;
-    width:170px;
-    text-align: center; 
-    line-height: 13px;
-    transition: all 0.5s;
-     cursor: pointer;
-
-
 }
 
