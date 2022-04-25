@@ -57,7 +57,7 @@ body {
     text-align: center; 
     line-height: 13px;
     transition: all 0.5s;
-     cursor: pointer;
+    cursor: pointer;
 
     
 }
@@ -66,6 +66,10 @@ body {
     background-color:  #A16AE8;
     color: white;
   }
+
+.sidebar-intro{
+	color: black;
+}
   
 .sidebar-box:hover,
 .sidebar-item:focus {

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BTS Tours</title>
+	<meta charset="utf-8" />
+
+	<!-- style sheets -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div class="header">
+		BTS Tours <img src="images/btslogo.png" width="25px" padding-down ="50px">
+	</div>
+	<div class="sidebar">
+		<div class = "intro">
+			<h2>BTS (방탄소년단)</h2>
+			<b>or BulletProof Boyscouts in English, have undoubtedly made their mark in the music industry. With their rapid global expansion, with the support of their devoted fandom (ARMY), and their continual success, they are on their way to becoming one of the most decorated artists in history. 
+
+			</b> 
+			
+		</div>
+	
+		
+		<p>
+			Their global expansion can be visualized through their tours over the years.
+			The following shows the Tour desentations of BTS's first tour <i>The Red Bullet Tour</i> in 2014 vs what would've been their most recent tour <i>Map of the Soul Tour</i> in 2020</p> <br>
+
+		
+		<div class="sidebar-text">
+		<h3>Concert Shows by Continent</h3>
+		 <div class="sidebar-box" onclick="flyToIndex(34.0479, 100.6197)">Asia</div>
+			<div class="sidebar-box" onclick="flyToIndex(54.5260,-105.2551)">North America</div>
+			<div class="sidebar-box" onclick="flyToIndex(54.5260,15.2551)">Europe</div>
+			<div class="sidebar-box" onclick="flyToIndex(-25.2744,133.7751)">Australia</div>
+			<div class="sidebar-box" onclick="flyToIndex(8.7832,-55.4915)">South America</div>
+	</div>
+	</div>
+	<div class="content">
+		<div id="map"></div>
+	</div>
+
+	<div class="footer">
+		Source: <a href="https://en.wikipedia.org/wiki/List_of_BTS_live_performances#Tours">BTS Tours</a>
+	</div>
+
+	<script src="js/map.js"></script>
+
+
+</body>
+</html>
