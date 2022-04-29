@@ -6,8 +6,8 @@ let zl = 3;
 
 // path to csv data
 let path = "data/BTSTours.csv";
-let markers = L.featureGroup();
 
+let markers = L.featureGroup();
 
 //initalize
 $( document ).ready(function() {
@@ -57,20 +57,20 @@ function mapCSV(data){
 	
 	// loop through each entry
 	data.data.forEach(function(item,index){
-		// create marker
-		let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
-		.on('mouseover',function(){
-			this.bindPopup(`${item.ZipCode}<br>${item.AverageCost}</br>`).openPopup()
-		})
-		$('.sidebar').append(`<div class="sidebar-item" onmouseover="panTo(${index})"> ${item.ZipCode}</div>`)
-		// add marker to featuregroup
-		markers.addLayer(marker)
+		if(item.latitude != undefined){
+			// create marker
+			let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
+			.on('mouseover',function(){
+				this.bindPopup(`${item.ZipCode}<br>${item.AverageCost}</br>`).openPopup()
+			})
+			$('.sidebar').append(`<div class="sidebar-item" onmouseover="panTo(${index})"> ${item.ZipCode}</div>`)
+			// add marker to featuregroup
+			markers.addLayer(marker)
+		}
 	})
 
 	// add featuregroup to map
 	markers.addTo(map)
-
-	// fit markers to map
 	map.fitBounds(markers.getBounds())
 }
 
